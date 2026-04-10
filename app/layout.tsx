@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 import { CookieConsent } from '@/components/cookie-consent'
 import { GoogleAnalytics } from '@/components/google-analytics'
-import { PageBreadcrumb } from '@/components/page-breadcrumb'
+import { SiteChrome } from '@/components/site-chrome'
+import { SiteFooter } from '@/components/site-footer'
 import { SITE_URL } from '@/lib/site-routes'
 import './globals.css'
 
@@ -87,10 +86,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <GoogleAnalytics />
-        <Header />
-        <PageBreadcrumb />
+        <SiteChrome />
         <main>{children}</main>
-        <Footer />
+        <SiteFooter />
         <CookieConsent />
         <Analytics />
       </body>
