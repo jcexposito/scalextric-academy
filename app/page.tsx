@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { 
   Rocket, 
   Users, 
-  Trophy, 
+  Sparkles, 
   Lightbulb, 
   GraduationCap, 
   Leaf,
@@ -24,12 +24,12 @@ const features = [
   {
     icon: Users,
     title: "Trabajo en Equipo",
-    description: "Los alumnos forman escuderías y colaboran como en equipos profesionales de competición."
+    description: "Los alumnos forman escuderías y colaboran con dinámicas de proyecto reales."
   },
   {
-    icon: Trophy,
-    title: "Competiciones",
-    description: "Eventos y carreras que fomentan la superación personal y el espíritu deportivo."
+    icon: Sparkles,
+    title: "Innovar",
+    description: "Temática original, actual y práctica para aprender de un modo diferenciador."
   },
   {
     icon: Lightbulb,
@@ -96,7 +96,7 @@ export default function HomePage() {
               <span className="text-[#ED1C24]">Scalextric</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl">
-              Un programa educativo único que combina la pasión por las carreras de slot 
+              Un programa educativo único que combina la pasión por los retos tecnológicos 
               con el aprendizaje de Ciencia, Tecnología, Ingeniería y Matemáticas para 
               estudiantes de ESO y Bachillerato.
             </p>
@@ -142,9 +142,8 @@ export default function HomePage() {
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Los estudiantes aprenden conceptos de Física, Matemáticas, Tecnología 
-                e Ingeniería mientras diseñan, construyen y compiten con sus propios 
-                vehículos de slot, trabajando en equipo como auténticas escuderías 
-                de competición.
+                e Ingeniería mientras diseñan, construyen y mejoran sus propios 
+                vehículos de slot, trabajando en equipo como auténticas escuderías.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
@@ -193,7 +192,7 @@ export default function HomePage() {
               Una metodología educativa completa
             </h2>
             <p className="text-lg text-gray-600">
-              Combinamos la diversión y la competición con un riguroso enfoque 
+              Combinamos la creatividad y la innovación con un riguroso enfoque 
               pedagógico basado en competencias.
             </p>
           </div>
@@ -243,7 +242,7 @@ export default function HomePage() {
             <div className="order-2 lg:order-1">
               <Image
                 src="/images/competicion.jpg"
-                alt="Competición escolar de Scalextric"
+                alt="Proyecto escolar de Scalextric"
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-2xl"
@@ -255,16 +254,19 @@ export default function HomePage() {
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 El proyecto se desarrolla a lo largo de 8 fases cuidadosamente 
-                diseñadas que llevan a los estudiantes desde la formación de 
-                equipos hasta la competición final, pasando por el diseño, 
-                la construcción y la optimización de sus vehículos.
+                diseñadas que llevan a los estudiantes desde la creación de 
+                escuderías hasta el test en pista y la presentación final.
               </p>
               <div className="space-y-4 mb-8">
                 {[
-                  "Formación de escuderías y roles",
-                  "Diseño y personalización del vehículo",
-                  "Construcción y montaje",
-                  "Pruebas, ajustes y competición"
+                  "Presentación del proyecto y creación de escuderías",
+                  "Taller de electricidad",
+                  "Taller de fuerzas y magnetismo",
+                  "Materiales y huella ecológica",
+                  "Roles dentro de la escudería",
+                  "Diseño e impresión 3D",
+                  "Montaje y personalización del coche",
+                  "Test en pista y presentación final"
                 ].map((phase, index) => (
                   <div key={phase} className="flex items-center gap-4">
                     <span className="h-8 w-8 rounded-full bg-[#ED1C24] text-white flex items-center justify-center font-semibold text-sm">

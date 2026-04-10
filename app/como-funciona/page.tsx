@@ -15,66 +15,66 @@ import {
 
 export const metadata: Metadata = {
   title: "Cómo Funciona",
-  description: "Conoce las 8 fases del proyecto Scalextric Academy: desde la formación de escuderías hasta la competición final. Metodología ABP aplicada a la educación STEM.",
-  keywords: ["metodología ABP", "aprendizaje basado en proyectos", "fases proyecto educativo", "competición escolar STEM"]
+  description: "Conoce las 8 fases del proyecto Scalextric Academy: desde la creación de escuderías hasta el test en pista y la presentación final. Metodología ABP aplicada a la educación STEM.",
+  keywords: ["metodología ABP", "aprendizaje basado en proyectos", "fases proyecto educativo", "innovación escolar STEM"]
 }
 
 const phases = [
   {
     number: 1,
     icon: Users,
-    title: "Formación de Escuderías",
-    description: "Los estudiantes se organizan en equipos de 4-6 personas, eligiendo nombre, colores corporativos y asignando roles específicos: jefe de equipo, diseñador, ingeniero, piloto, analista de datos y responsable de comunicación.",
-    outcomes: ["Equipos formados", "Roles asignados", "Identidad corporativa definida"]
+    title: "Presentación del proyecto y creación de escuderías",
+    description: "Se introduce el proyecto y los estudiantes se organizan en escuderías, definiendo nombre e identidad de equipo para comenzar el trabajo colaborativo.",
+    outcomes: ["Proyecto presentado", "Escuderías creadas", "Identidad de equipo definida"]
   },
   {
     number: 2,
-    icon: Palette,
-    title: "Diseño del Vehículo",
-    description: "Cada escudería diseña la carrocería de su coche utilizando herramientas CAD. Aprenden principios de aerodinámica, estética y funcionalidad mientras crean un diseño único y competitivo.",
-    outcomes: ["Bocetos iniciales", "Diseño CAD completo", "Especificaciones técnicas"]
+    icon: TestTube,
+    title: "Taller de electricidad",
+    description: "Sesión práctica para comprender conceptos eléctricos aplicados al vehículo y al funcionamiento en pista.",
+    outcomes: ["Conceptos eléctricos básicos", "Circuitos interpretados", "Aplicación práctica en el coche"]
   },
   {
     number: 3,
-    icon: Wrench,
-    title: "Construcción y Montaje",
-    description: "Con los diseños aprobados, los equipos fabrican las piezas mediante impresión 3D y ensamblan el vehículo completo. Aprenden sobre materiales, tolerancias y técnicas de montaje.",
-    outcomes: ["Piezas impresas", "Vehículo ensamblado", "Control de calidad realizado"]
+    icon: BarChart3,
+    title: "Taller de fuerzas y magnetismo",
+    description: "Se trabajan principios de fuerzas y magnetismo para entender la estabilidad, tracción y comportamiento del coche en distintos escenarios.",
+    outcomes: ["Fuerzas identificadas", "Magnetismo aplicado", "Mejor comprensión del rendimiento en pista"]
   },
   {
     number: 4,
-    icon: TestTube,
-    title: "Pruebas y Ajustes",
-    description: "Los equipos realizan pruebas en pista para evaluar el rendimiento. Analizan datos de velocidad, agarre y estabilidad para identificar áreas de mejora.",
-    outcomes: ["Datos de rendimiento", "Análisis de problemas", "Plan de mejoras"]
+    icon: FileText,
+    title: "Materiales y huella ecológica",
+    description: "Análisis de materiales utilizados y reflexión sobre su impacto ambiental, incorporando criterios de sostenibilidad al proyecto.",
+    outcomes: ["Materiales evaluados", "Huella ecológica analizada", "Decisiones más sostenibles"]
   },
   {
     number: 5,
-    icon: BarChart3,
-    title: "Optimización",
-    description: "Basándose en los datos recopilados, cada escudería implementa mejoras iterativas. Aplican el método científico para validar hipótesis y optimizar el rendimiento.",
-    outcomes: ["Mejoras implementadas", "Rendimiento optimizado", "Documentación técnica"]
+    icon: Users,
+    title: "Roles dentro de la escudería",
+    description: "Se asignan y consolidan funciones dentro de cada equipo para mejorar la coordinación y el trabajo colaborativo durante todas las fases.",
+    outcomes: ["Roles definidos", "Responsabilidades claras", "Dinámica de equipo mejorada"]
   },
   {
     number: 6,
-    icon: FileText,
-    title: "Documentación",
-    description: "Los equipos elaboran un dossier técnico completo del proyecto, incluyendo memoria descriptiva, planos, cálculos y conclusiones. Practican la comunicación técnica profesional.",
-    outcomes: ["Memoria técnica", "Portafolio visual", "Presentaci��n preparada"]
+    icon: Palette,
+    title: "Diseño e impresión 3D",
+    description: "Cada escudería diseña componentes y los fabrica con impresión 3D, aplicando criterios de funcionalidad y personalización.",
+    outcomes: ["Diseño digital completado", "Piezas impresas", "Prototipos listos para montaje"]
   },
   {
     number: 7,
     icon: Trophy,
-    title: "Competición",
-    description: "El momento culminante: todas las escuderías compiten en carreras oficiales. Se evalúa no solo la velocidad, sino también la regularidad, la estrategia y el trabajo en equipo.",
-    outcomes: ["Carreras completadas", "Rankings establecidos", "Datos de competición"]
+    title: "Montaje y personalización del coche",
+    description: "Se ensamblan las piezas y se personaliza el vehículo, verificando ajustes mecánicos y estéticos antes de la prueba final.",
+    outcomes: ["Coche montado", "Personalización terminada", "Ajustes finales realizados"]
   },
   {
     number: 8,
     icon: Award,
-    title: "Evaluación y Reconocimiento",
-    description: "Ceremonia de clausura donde se reconoce el trabajo de todos los equipos. Se entregan premios en diferentes categorías: velocidad, diseño, innovación, trabajo en equipo y sostenibilidad.",
-    outcomes: ["Premios entregados", "Evaluación completada", "Certificados de participación"]
+    title: "Test en pista y presentación final",
+    description: "Fase de validación en pista y cierre del proyecto con presentación final de resultados, aprendizajes y propuestas de mejora.",
+    outcomes: ["Test en pista completado", "Presentación final realizada", "Conclusiones del proyecto compartidas"]
   }
 ]
 
@@ -117,7 +117,7 @@ export default function ComoFuncionaPage() {
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed">
               Un recorrido estructurado en 8 fases que guía a los estudiantes desde 
-              la idea inicial hasta la competición final.
+              la idea inicial hasta el test en pista y la presentación final.
             </p>
           </div>
         </div>

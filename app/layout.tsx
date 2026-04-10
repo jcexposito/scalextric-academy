@@ -5,6 +5,7 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { CookieConsent } from '@/components/cookie-consent'
 import { GoogleAnalytics } from '@/components/google-analytics'
+import { PageBreadcrumb } from '@/components/page-breadcrumb'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -61,6 +62,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <GoogleAnalytics />
         <Header />
+        <PageBreadcrumb />
         <main>{children}</main>
         <Footer />
         <CookieConsent />

@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 
 const navigation = [
-  { name: "Inicio", href: "/" },
   { name: "Proyecto Educativo", href: "/proyecto-educativo" },
   { name: "Cómo Funciona", href: "/como-funciona" },
   { name: "STEM + Sostenibilidad", href: "/stem-sostenibilidad" },
@@ -34,20 +33,27 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white shadow-md py-2"
-          : "bg-transparent py-4"
+          ? "bg-white/75 backdrop-blur-xl border-b border-gray-200/70 shadow-sm py-2"
+          : "bg-black/20 backdrop-blur-md border-b border-white/15 py-4"
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
+        <div className="relative flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link
+            href="/"
+            className="absolute left-1/2 -translate-x-1/2 flex items-center lg:static lg:translate-x-0"
+          >
             <Image
               src="/logo-academy.png"
               alt="Scalextric Academy"
               width={180}
               height={50}
-              className="h-10 md:h-12 w-auto"
+              className={`h-10 md:h-12 w-auto transition-all duration-300 ${
+                isScrolled
+                  ? "filter-none"
+                  : "brightness-0 invert drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+              }`}
               priority
             />
           </Link>
@@ -58,10 +64,10 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-[#ED1C24]/10 ${
+                className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
                   isScrolled
-                    ? "text-gray-700 hover:text-[#ED1C24]"
-                    : "text-white hover:text-white"
+                    ? "text-gray-700 hover:text-[#ED1C24] hover:bg-[#ED1C24]/10"
+                    : "text-white/95 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {item.name}
@@ -78,11 +84,11 @@ export function Header() {
                 className={`gap-2 ${
                   isScrolled
                     ? "text-gray-700 hover:text-[#ED1C24]"
-                    : "text-white hover:text-white hover:bg-white/20"
+                    : "text-white/95 hover:text-white hover:bg-white/10"
                 }`}
               >
                 <User className="h-4 w-4" />
-                Portal
+                Acceder
               </Button>
             </Link>
             <Link href="/contacto">
@@ -134,7 +140,7 @@ export function Header() {
                   <Link href="/portal" onClick={() => setIsOpen(false)}>
                     <Button variant="outline" className="w-full gap-2">
                       <User className="h-4 w-4" />
-                      Portal Alumno
+                      Acceder
                     </Button>
                   </Link>
                   <Link href="/contacto" onClick={() => setIsOpen(false)}>
