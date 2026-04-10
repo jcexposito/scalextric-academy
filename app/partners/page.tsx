@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Card, CardContent } from "@/components/ui/card"
 import { CTASection } from "@/components/cta-section"
 import { FloatingCTA } from "@/components/floating-cta"
+import { PartnersContactForm } from "@/components/partners-contact-form"
 import { 
   Award, 
   Star, 
@@ -207,6 +208,25 @@ export default function PartnersPage() {
               Tu empresa podría estar aquí. Contacta con nosotros para conocer 
               todas las posibilidades de colaboración.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Partner Contact Form */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <Card className="border-0 shadow-xl">
+              <CardContent className="p-8 md:p-10">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                  ¿Quieres colaborar como partner?
+                </h2>
+                <p className="text-gray-600 mb-8">
+                  Déjanos tus datos y te contactaremos para explicarte modalidades, alcance y próximos pasos.
+                </p>
+                <PartnersContactForm />
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

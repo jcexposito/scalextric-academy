@@ -24,15 +24,46 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [acceptedPrivacy, setAcceptedPrivacy] = useState(false)
+  const [role, setRole] = useState("")
+  const [error, setError] = useState("")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!acceptedPrivacy) return
 
+    setError("")
     setIsSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    try {
+      const formData = new FormData(e.currentTarget)
+      const payload = {
+        formType: "contact",
+        nombre: String(formData.get("nombre") ?? ""),
+        email: String(formData.get("email") ?? ""),
+        telefono: String(formData.get("telefono") ?? ""),
+        rol: role,
+        organizacion: String(formData.get("organizacion") ?? ""),
+        mensaje: String(formData.get("mensaje") ?? ""),
+      }
+
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+
+      if (!response.ok) {
+        throw new Error("No se pudo enviar")
+      }
+
+      setIsSubmitted(true)
+      e.currentTarget.reset()
+      setRole("")
+      setAcceptedPrivacy(false)
+    } catch {
+      setError("No se ha podido enviar. Inténtalo de nuevo en unos minutos.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -72,7 +103,7 @@ export function ContactForm() {
         </div>
         <div className="space-y-2">
           <Label htmlFor="rol">Perfil *</Label>
-          <Select name="rol" required>
+          <Select value={role} onValueChange={setRole} required>
             <SelectTrigger>
               <SelectValue placeholder="Selecciona tu perfil" />
             </SelectTrigger>
@@ -122,7 +153,7 @@ export function ContactForm() {
         type="submit" 
         size="lg"
         className="w-full bg-[#ED1C24] hover:bg-[#C41922] text-white"
-        disabled={isSubmitting || !acceptedPrivacy}
+        disabled={isSubmitting || !acceptedPrivacy || !role}
       >
         {isSubmitting ? (
           <>
@@ -133,6 +164,10 @@ export function ContactForm() {
           "Enviar mensaje"
         )}
       </Button>
+
+      {error ? (
+        <p className="text-sm text-red-600 text-center">{error}</p>
+      ) : null}
 
       <p className="text-xs text-gray-500 text-center">
         Los campos marcados con * son obligatorios.

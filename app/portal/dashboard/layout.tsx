@@ -10,6 +10,7 @@ import {
   School, 
   FileText, 
   Calendar,
+  Download,
   LogOut,
   Menu,
   X
@@ -20,6 +21,7 @@ const navigation = [
   { name: "Mi Escuela", href: "/portal/dashboard/escuela", icon: School },
   { name: "Mis Notas", href: "/portal/dashboard/notas", icon: FileText },
   { name: "Calendario", href: "/portal/dashboard/calendario", icon: Calendar },
+  { name: "Descargas", href: "/portal/dashboard/descargas", icon: Download },
 ]
 
 export default function DashboardLayout({

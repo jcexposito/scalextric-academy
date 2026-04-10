@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Users, MapPin, Trophy } from "lucide-react"
+import { Users, MapPin, UploadCloud } from "lucide-react"
 
 const teamMembers = [
   { name: "Demo Alumno", role: "Piloto", avatar: "DA" },
@@ -8,13 +8,6 @@ const teamMembers = [
   { name: "Carlos López", role: "Ingeniero", avatar: "CL" },
   { name: "Ana Martínez", role: "Diseñadora", avatar: "AM" },
   { name: "Pedro Sánchez", role: "Analista de datos", avatar: "PS" },
-]
-
-const teamStats = [
-  { label: "Carreras disputadas", value: "8" },
-  { label: "Victorias", value: "3" },
-  { label: "Podios", value: "6" },
-  { label: "Mejor tiempo", value: "11.8s" },
 ]
 
 export default function EscuelaPage() {
@@ -84,21 +77,23 @@ export default function EscuelaPage() {
         <Card className="border-0 shadow-md">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Trophy className="h-5 w-5 text-[#ED1C24]" />
-              Estadísticas del equipo
+              <UploadCloud className="h-5 w-5 text-[#ED1C24]" />
+              Multimedia
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              {teamStats.map((stat) => (
-                <div 
-                  key={stat.label}
-                  className="flex items-center justify-between py-2 border-b last:border-0"
-                >
-                  <span className="text-gray-600">{stat.label}</span>
-                  <span className="font-bold text-gray-900">{stat.value}</span>
-                </div>
-              ))}
+            <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center bg-gray-50">
+              <UploadCloud className="h-10 w-10 text-gray-400 mx-auto mb-3" />
+              <p className="text-gray-700 font-medium mb-2">Subir imágenes</p>
+              <p className="text-sm text-gray-500 mb-4">
+                Arrastra aquí tus archivos o pulsa para seleccionar.
+              </p>
+              <button
+                type="button"
+                className="inline-flex items-center rounded-md bg-[#ED1C24] px-4 py-2 text-sm font-medium text-white hover:bg-[#C41922]"
+              >
+                Subir y Arrastrar
+              </button>
             </div>
           </CardContent>
         </Card>

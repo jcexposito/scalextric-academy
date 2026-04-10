@@ -1,12 +1,13 @@
 import type { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site-routes'
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/portal/dashboard/', '/api/'],
+      disallow: ['/portal/dashboard/'],
     },
-    sitemap: 'https://scalextric-academy.com/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   }
 }

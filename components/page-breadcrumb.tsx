@@ -2,22 +2,10 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-
-const LABELS: Record<string, string> = {
-  "proyecto-educativo": "Proyecto Educativo",
-  "como-funciona": "Cómo Funciona",
-  "stem-sostenibilidad": "STEM + Sostenibilidad",
-  eventos: "Eventos",
-  partners: "Partners",
-  galeria: "Galería",
-  contacto: "Contacto",
-  "aviso-legal": "Aviso Legal",
-  privacidad: "Privacidad",
-  cookies: "Cookies",
-}
+import { getRouteLabel } from "@/lib/site-routes"
 
 function toLabel(segment: string) {
-  return LABELS[segment] ?? decodeURIComponent(segment).replace(/-/g, " ")
+  return getRouteLabel(segment) ?? decodeURIComponent(segment).replace(/-/g, " ")
 }
 
 export function PageBreadcrumb() {
@@ -32,9 +20,31 @@ export function PageBreadcrumb() {
     href: `/${segments.slice(0, index + 1).join("/")}`,
     label: toLabel(segment),
   }))
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: "https://scalextric-academy.com/",
+      },
+      ...crumbs.map((crumb, index) => ({
+        "@type": "ListItem",
+        position: index + 2,
+        name: crumb.label,
+        item: `https://scalextric-academy.com${crumb.href}`,
+      })),
+    ],
+  }
 
   return (
     <div className="fixed top-20 left-4 z-40 md:top-[5.625rem] md:left-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <nav
         aria-label="Breadcrumb"
         className="rounded-md bg-black/30 px-3 py-2 backdrop-blur-sm"

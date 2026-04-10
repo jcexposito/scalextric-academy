@@ -6,11 +6,13 @@ import { Footer } from '@/components/footer'
 import { CookieConsent } from '@/components/cookie-consent'
 import { GoogleAnalytics } from '@/components/google-analytics'
 import { PageBreadcrumb } from '@/components/page-breadcrumb'
+import { SITE_URL } from '@/lib/site-routes'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Scalextric Academy | Formación STEM con Slot Cars para Colegios e Institutos',
     template: '%s | Scalextric Academy'
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_ES',
-    url: 'https://scalextric-academy.com',
+    url: SITE_URL,
     siteName: 'Scalextric Academy',
     title: 'Scalextric Academy | Formación STEM con Slot Cars',
     description: 'Aprende Ciencia, Tecnología, Ingeniería y Matemáticas de forma práctica y divertida con Scalextric.',
@@ -57,9 +59,33 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Scalextric Academy',
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo-academy.png`,
+  }
+
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Scalextric Academy',
+    url: SITE_URL,
+    inLanguage: 'es-ES',
+  }
+
   return (
     <html lang="es">
       <body className={`${inter.className} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <GoogleAnalytics />
         <Header />
         <PageBreadcrumb />

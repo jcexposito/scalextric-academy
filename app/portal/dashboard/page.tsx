@@ -1,31 +1,31 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { 
-  Trophy, 
   Calendar, 
   TrendingUp,
   Users,
+  Lightbulb,
   Clock
 } from "lucide-react"
 
 const stats = [
-  { label: "Posición en ranking", value: "3.º", icon: Trophy, change: "+2" },
+  { label: "Ideas propuestas", value: "9", icon: Lightbulb, change: "+2" },
   { label: "Sesiones completadas", value: "12", icon: Calendar, change: "" },
   { label: "Puntuación media", value: "8.5", icon: TrendingUp, change: "+0.3" },
   { label: "Miembros del equipo", value: "5", icon: Users, change: "" },
 ]
 
 const recentActivities = [
-  { date: "28 Mar", activity: "Carrera de clasificación", result: "2.º puesto" },
-  { date: "25 Mar", activity: "Prueba de velocidad", result: "Mejor tiempo: 12.3s" },
-  { date: "21 Mar", activity: "Entrega diseño CAD", result: "Aprobado" },
-  { date: "18 Mar", activity: "Sesión de montaje", result: "Completada" },
+  { date: "28 Mar", activity: "Taller de fuerzas y magnetismo", result: "Completado" },
+  { date: "25 Mar", activity: "Entrega de diseño 3D", result: "Aprobado" },
+  { date: "21 Mar", activity: "Revisión de materiales sostenibles", result: "Validado" },
+  { date: "18 Mar", activity: "Sesión de electricidad", result: "Completada" },
 ]
 
 const upcomingEvents = [
-  { date: "5 Abr", event: "Carrera eliminatoria", time: "10:00" },
-  { date: "12 Abr", event: "Presentación del proyecto", time: "11:30" },
-  { date: "19 Abr", event: "Final local", time: "09:00" },
+  { date: "5 Abr", event: "Fase 4: Materiales y huella ecológica", time: "10:00" },
+  { date: "12 Abr", event: "Fase 5: Roles dentro de la escudería", time: "11:30" },
+  { date: "19 Abr", event: "Fase 6: Diseño e impresión 3D", time: "09:00" },
 ]
 
 export default function DashboardPage() {

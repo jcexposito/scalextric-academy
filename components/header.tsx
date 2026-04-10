@@ -6,16 +6,12 @@ import Image from "next/image"
 import { Menu, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
+import { SITE_ROUTES } from "@/lib/site-routes"
 
-const navigation = [
-  { name: "Proyecto Educativo", href: "/proyecto-educativo" },
-  { name: "Cómo Funciona", href: "/como-funciona" },
-  { name: "STEM + Sostenibilidad", href: "/stem-sostenibilidad" },
-  { name: "Eventos", href: "/eventos" },
-  { name: "Partners", href: "/partners" },
-  { name: "Galería", href: "/galeria" },
-  { name: "Contacto", href: "/contacto" },
-]
+const navigation = SITE_ROUTES.filter((route) => route.inMenu).map((route) => ({
+  name: route.label,
+  href: route.path,
+}))
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
