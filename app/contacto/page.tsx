@@ -79,14 +79,6 @@ export default function ContactoPage() {
                 ))}
               </div>
 
-              <div className="mt-8 p-6 bg-[#ED1C24]/5 rounded-xl border border-[#ED1C24]/20">
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Tiempo de respuesta
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Gracias por tu solicitud. Te contactaremos lo antes posible.
-                </p>
-              </div>
             </div>
 
             {/* Contact Form */}
