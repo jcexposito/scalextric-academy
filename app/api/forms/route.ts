@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
       const endpoint = process.env.GOOGLE_SHEETS_CONTACT_WEBHOOK_URL
       if (!endpoint) {
         return NextResponse.json(
-          { error: "No está configurado GOOGLE_SHEETS_CONTACT_WEBHOOK_URL" },
+          { error: "El servicio de contacto no está configurado en este entorno." },
           { status: 500 }
         )
       }
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
       const endpoint = process.env.GOOGLE_SHEETS_PARTNERS_WEBHOOK_URL
       if (!endpoint) {
         return NextResponse.json(
-          { error: "No está configurado GOOGLE_SHEETS_PARTNERS_WEBHOOK_URL" },
+          { error: "El servicio de partners no está configurado en este entorno." },
           { status: 500 }
         )
       }
@@ -106,7 +106,8 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ ok: true })
-  } catch {
+  } catch (error) {
+    console.error("Error processing form submission", error)
     return NextResponse.json({ error: "No se pudo enviar el formulario" }, { status: 500 })
   }
 }

@@ -33,15 +33,24 @@ export function PartnersContactForm() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify(payload),
       })
+      const data = await response.json().catch(() => null)
 
       if (!response.ok) {
-        throw new Error("No se pudo enviar")
+        throw new Error(
+          typeof data?.error === "string"
+            ? data.error
+            : "No se ha podido enviar. Inténtalo de nuevo en unos minutos."
+        )
       }
 
       setIsSubmitted(true)
       e.currentTarget.reset()
-    } catch {
-      setError("No se ha podido enviar. Inténtalo de nuevo en unos minutos.")
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "No se ha podido enviar. Inténtalo de nuevo en unos minutos."
+      )
     } finally {
       setIsSubmitting(false)
     }
