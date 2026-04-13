@@ -37,8 +37,10 @@ export function PartnersContactForm() {
 
       if (!response.ok) {
         throw new Error(
-          typeof data?.error === "string"
-            ? data.error
+          typeof data?.detail === "string"
+            ? `${typeof data?.error === "string" ? `${data.error}: ` : ""}${data.detail}`
+            : typeof data?.error === "string"
+              ? data.error
             : "No se ha podido enviar. Inténtalo de nuevo en unos minutos."
         )
       }

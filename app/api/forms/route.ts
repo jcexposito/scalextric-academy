@@ -30,7 +30,10 @@ async function sendToGoogleAppsScript(url: string, payload: object) {
   })
 
   if (!response.ok) {
-    throw new Error(`Google Apps Script error: ${response.status}`)
+    const responseText = await response.text().catch(() => "")
+    throw new Error(
+      `Google Apps Script error: ${response.status}${responseText ? ` - ${responseText.slice(0, 200)}` : ""}`
+    )
   }
 }
 
@@ -107,7 +110,15 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ ok: true })
   } catch (error) {
-    console.error("Error processing form submission", error)
-    return NextResponse.json({ error: "No se pudo enviar el formulario" }, { status: 500 })
+    const message = error instanceof Error ? error.message : "Error desconocido"
+    console.error("Error processing form submission", {
+      message,
+      hasContactWebhook: Boolean(process.env.GOOGLE_SHEETS_CONTACT_WEBHOOK_URL),
+      hasPartnersWebhook: Boolean(process.env.GOOGLE_SHEETS_PARTNERS_WEBHOOK_URL),
+    })
+    return NextResponse.json(
+      { error: "No se pudo enviar el formulario", detail: message },
+      { status: 500 }
+    )
   }
 }
