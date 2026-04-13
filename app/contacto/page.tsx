@@ -84,8 +84,7 @@ export default function ContactoPage() {
                   Tiempo de respuesta
                 </h3>
                 <p className="text-sm text-gray-600">
-                  Nos comprometemos a responder todas las consultas en un plazo 
-                  máximo de 48 horas laborables.
+                  Gracias por tu solicitud. Te contactaremos lo antes posible.
                 </p>
               </div>
             </div>

@@ -76,8 +76,7 @@ export function ContactForm() {
           ¡Mensaje enviado!
         </h3>
         <p className="text-gray-600 max-w-md mx-auto">
-          Gracias por tu interés en Scalextric Academy. Nos pondremos en contacto 
-          contigo en las próximas 48 horas.
+          Gracias por tu solicitud. Te contactaremos lo antes posible.
         </p>
       </div>
     )
